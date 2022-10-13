@@ -45,11 +45,15 @@
 
 
 <script>
+
+     let countdown = Math.floor(Math.random() * 9) + 2
+            console.log()
+
     function startTime() {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < countdown; i++) {
             setTimeout(() => {
                 document.getElementById("count").innerHTML = i
-            }, ((3 - i) * 1000));
+            }, ((countdown - 1 - i) * 1000));
         }
         setTimeout(() => {
             if (myTime == undefined) {
@@ -60,6 +64,10 @@
             }
         }, 3000);
     }
+
+   
+
+
 </script>
 
 

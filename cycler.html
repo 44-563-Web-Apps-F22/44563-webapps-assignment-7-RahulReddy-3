@@ -57,6 +57,7 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
         <button class="btn btn-warning" type="submit" onclick="makeNewDiv()">Add Value</button>
         <button class="btn btn-danger" type="submit" onclick="get()">Get</button>
         <button class="btn btn-success" type="submit" onclick="spin()">Spin</button>
+        <button onclick="swap()">Swap</button>
 
     </div>
 </div>
@@ -92,6 +93,25 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
             container.insertBefore(removedItem, container.firstChild)
         }
     }
+
+    function swap() {
+			let cyclerItems = document.getElementsByClassName("cycler")
+            let container = document.getElementById("target")
+            let x= Math.floor(Math.random() * cyclerItems.length)
+            let y = Math.floor(Math.random() * cyclerItems.length)
+			while(x==y){
+				y = Math.floor(Math.random() * cyclerItems.length)
+				if(x!=y)
+					break;
+			}
+            let firstInnerText = document.getElementsByClassName("cycler")[x]
+            let secondInnerText = document.getElementsByClassName("cycler")[y]
+            if(cyclerItems.length > 1) {
+                let temp = firstInnerText.innerHTML
+                firstInnerText.innerHTML = secondInnerText.innerHTML
+                secondInnerText.innerHTML = temp
+            }
+		}
 </script>
 
 
